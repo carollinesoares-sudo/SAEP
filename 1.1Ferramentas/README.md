@@ -38,4 +38,41 @@ Este Documento especifíca os requistos de software para o Sistema de Gestão de
 - RF-09 : Validação de Dados no Formulário
 - RF-10 : Listar Produtos em Ordem Alfabética
 - RF-11 : Selecionar operação de Entrada e Saída de Produtos
-- 
+- RF-12 : Inserir Data de Movimentação
+- RF-13 : Validação da Movimentação
+
+### 4. Modelo Lógico de Dados [Entrega 02]
+
+#### 4.1. Diagrama de Entidades Relacionais (DER)
+
+```mermaid
+classDiagram
+    class Usuario {
+        +int id
+        +string nome
+        +string login
+        +string senha
+    }
+
+    class Produto {
+        +int id
+        +string nome
+        +string descricao
+        +int estoque_atual
+        +int estoque_minimo
+    }
+
+    class Movimentacao {
+        +int id
+        +int produto_id
+        +int usuario_id
+        +string tipo
+        +int quantidade
+        +datetime data_movimentacao
+    }
+
+    Usuario "1" -- "0..*" Movimentacao
+    Produto "1" -- "0..*" Movimentacao
+```
+
+### 5. Verificação e Teste de Software [Entrega 08]

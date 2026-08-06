@@ -2,7 +2,7 @@ package com.saep.backend.Model;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.*;
+import jakarta.persistence.*; //importanto todas as classe dentro da pasta persistence do jakarta
 
 @Entity
 public class Movimentacao {
@@ -18,14 +18,14 @@ public class Movimentacao {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario_id;
 
-    private String tipo; // Entrada ou Saída
+    private String tipo; //Entrada ou Saída
 
     private Integer quantidade;
-
-    // Getters e Setters
-    @Column(name = "data_movimentacao")
+    
+    @Column(name = "data_movimetacao")
     private LocalDate dataMovimentacao;
-
+    
+    //gerar os Getters and Setters
     public Long getId() {
         return id;
     }
@@ -73,4 +73,5 @@ public class Movimentacao {
     public void setDataMovimentacao(LocalDate dataMovimentacao) {
         this.dataMovimentacao = dataMovimentacao;
     }
+
 }

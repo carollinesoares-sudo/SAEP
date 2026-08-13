@@ -1,3 +1,4 @@
+
 # Sistema de Gerenciamento de Almoxarifado - Fábrica de Ferramentas
 
 ## Contextualização
@@ -23,49 +24,51 @@ Este Documento especifíca os requistos de software para o Sistema de Gestão de
 |FrontEnd | TypeScript (Angular) | Angular 21 |
 |SGBD | PostgreSQL | 18 |
 
-### 3. Requisitos do Sistema
+### 3. Requisitos do Sistema [Entrega 01]
 
 #### 3.1. Requisitos Funcionais (RF)
 
-- RF-01 : Tela de Login
-- RF-02 : Avido Falha de Autenticação - Interface de Login
-- RF-03 : Exibir Nome do Usuáio Logado - Interface Principal
+- RF-01 : Tela de Login - Interface de Login
+- RF-02 : Aviso Falha de Autenticação - Interface de login
+- RF-03 : Exibir Nome do Usuário Logado - Interface Principal
 - RF-04 : Botão de Logout - Interface Principal
 - RF-05 : Navegação para Cadastro de Produtos e Gestão de Estoque - Interface Principal
-- RF-06 : Listar Produtos Cadastrados - Gestão de Produtos
+- RF-06 : Listar Produtos Cadastrado - Gestão de Produtos
 - RF-07 : Filtragem de Produtos - Gestão de Produtos
 - RF-08 : Criação, Edição e Exclusão de Produtos - Gestão de Produtos
-- RF-09 : Validação de Dados no Formulário
-- RF-10 : Listar Produtos em Ordem Alfabética
+- RF-09 :  Validação de Dados no Formulário
+- RF-10 : listar produtos em ordem alfabética
 - RF-11 : Selecionar operação de Entrada e Saída de Produtos
-- RF-12 : Inserir Data de Movimentação
-- RF-13 : Validação da Movimentação
+- RF-12 : Inserir data de Movimentação
+- RF-13 : Validação da Movimentação 
 
 ### 4. Modelo Lógico de Dados [Entrega 02]
 
 #### 4.1. Diagrama de Entidades Relacionais (DER)
 
 ```mermaid
+
 classDiagram
-    class Usuario {
-        +int id
+
+    class Usuario{
+        +int id PK
         +string nome
         +string login
         +string senha
     }
 
-    class Produto {
-        +int id
+    class Produto{
+        +int id PK
         +string nome
         +string descricao
         +int estoque_atual
         +int estoque_minimo
     }
 
-    class Movimentacao {
-        +int id
-        +int produto_id
-        +int usuario_id
+    class Movimentacao{
+        +int id PK
+        +int produto_id FK
+        +int usuario_id FK
         +string tipo
         +int quantidade
         +datetime data_movimentacao
@@ -73,6 +76,8 @@ classDiagram
 
     Usuario "1" -- "0..*" Movimentacao
     Produto "1" -- "0..*" Movimentacao
-```
 
-### 5. Verificação e Teste de Software [Entrega 08]
+``` 
+### 5. Vericação e Teste de Software [Entrega 08]
+
+
